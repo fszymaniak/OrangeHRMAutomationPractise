@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 
 namespace OrangeHRM.App.UI.Tests
 {
-    using OpenQA.Selenium.Chrome;
-    using OpenQA.Selenium.Remote;
-    using OpenQA.Selenium.Support.UI;
-
     public static class UITestsBase
     {
         private static WebDriverWait driverWait;

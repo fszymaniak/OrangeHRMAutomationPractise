@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
+using OrangeHRM.App.UI.Tests.Extensions;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
@@ -12,10 +13,10 @@ namespace OrangeHRM.App.UI.Tests.Pages
             PageUrl = UITestsConfiguration.OrgangeHrmURL;
         }
 
-        private IWebElement UserNameInput => Driver.FindElement(By.XPath("//input[@id='txtUsername']"));
+        private IWebElement UserNameInput => Driver.FindElement("//input[@id='txtUsername']");
 
-        private IWebElement UserNamePassword => Driver.FindElement(By.XPath("//input[@id='txtPassword']"));
+        private IWebElement UserNamePassword => Driver.FindElement("//input[@id='txtPassword']");
 
-        private IWebElement LoginButton => Driver.FindElement(By.XPath("//input[@id='txtUsername']"));
+        private IWebElement LoginButton => Driver.FindElement("//input[@id='txtUsername']");
     }
 }
