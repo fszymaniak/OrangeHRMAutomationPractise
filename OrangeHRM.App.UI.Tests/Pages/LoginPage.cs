@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OrangeHRM.App.UI.Tests.Extensions;
+using NUnit.Framework;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
@@ -41,6 +39,12 @@ namespace OrangeHRM.App.UI.Tests.Pages
         public void clickLoginButton()
         {
             LoginButton.Click(); 
+        }
+
+        public void validateLoginSuccess()
+        {
+            var url = Driver.Url;
+            Assert.AreEqual(UITestsConfiguration.OrgangeHrmURL + "dashboard", url);
         }
     }
 }
