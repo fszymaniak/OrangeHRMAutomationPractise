@@ -20,7 +20,8 @@ namespace OrangeHRM.App.UI.Tests.Pages
 
         private IWebElement UserPasswordInput => Driver.FindElement("//input[@id='txtPassword']");
 
-        private IWebElement LoginButton => Driver.FindElement("//input[@id='btnLogin']");
+        private IWebElement LoginButton => Driver.FindElement("//div//div//input[@id='btnLogin']");
+        //private IWebElement LoginButton => Driver.FindElement("//input[@value='LOGIN']");
         
         public void LogIn()
         {
@@ -33,12 +34,14 @@ namespace OrangeHRM.App.UI.Tests.Pages
         {
             UserNameInput.Clear();
             UserNameInput.SendKeys(name);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         public void InputPassword(string password)
         {
             UserPasswordInput.Clear();
             UserPasswordInput.SendKeys(password);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
 
         public void ClickLoginButton()
