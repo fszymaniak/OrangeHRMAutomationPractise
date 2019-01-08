@@ -9,46 +9,46 @@ namespace OrangeHRM.App.UI.Tests
 {
     public static class UITestsBase
     {
-        private static WebDriverWait driverWait;
+        private static WebDriverWait _driverWait;
 
-        private static RemoteWebDriver driver;
+        private static RemoteWebDriver _driver;
 
-        public static RemoteWebDriver Driver
-        {
-            get
-            {
-                if (driver == null)
-                {
-                    throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method Start.");
-                }
-                return driver;
-            }
-            private set
-            {
-                driver = value;
-            }
-        }
+        //public static RemoteWebDriver Driver
+        //{
+        //    get
+        //    {
+        //        if (_driver == null)
+        //        {
+        //            throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method Start.");
+        //        }
+        //        return _driver;
+        //    }
+        //    private set
+        //    {
+        //        _driver = value;
+        //    }
+        //}
 
         public static WebDriverWait DriverWait
         {
             get
             {
-                if (driverWait == null || driver == null)
+                if (_driverWait == null || _driver == null)
                 {
                     throw new NullReferenceException("The WebDriver browser wait instance was not initialized. You should first call the method Start.");
                 }
-                return driverWait;
+                return _driverWait;
             }
             private set
             {
-                driverWait = value;
+                _driverWait = value;
             }
         }
 
         public static RemoteWebDriver InitDriver()
         {
-            if (Driver == null)
-            {
+            //if (Driver == null)
+            //{
                 var chromeOptions = new ChromeOptions();
 
                 if (UITestsConfiguration.ChromeHeadlessOn)
@@ -63,16 +63,16 @@ namespace OrangeHRM.App.UI.Tests
                     chromeOptions.AddArguments(UITestsConfiguration.DriverDefaultLanguage);
                     chromeOptions.AddArgument(UITestsConfiguration.DriverDefaultWindowSize);
                 }
-                driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, chromeOptions);
-            }
-            return driver;
+                _driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, chromeOptions);
+            //}
+            return _driver;
         }
 
-        public static void StopBrowser()
-        {
-            Driver.Quit();
-            Driver = null;
-            DriverWait = null;
-        }
+        //public static void StopBrowser()
+        //{
+        //    Driver.Quit();
+        //    Driver = null;
+        //    DriverWait = null;
+        //}
     }
 }

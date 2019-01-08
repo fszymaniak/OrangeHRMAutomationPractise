@@ -9,7 +9,7 @@ namespace OrangeHRM.App.UI.Tests
 {
     public static class UITestsConfiguration
     {
-        public static string OrgangeHrmURL => Configuration["OrgangeHrmURL"];
+        public static string OrgangeHrmURL => Configuration["OrangeHrmURL"];
 
         public static bool ChromeHeadlessOn => bool.Parse(Configuration[nameof(ChromeHeadlessOn)]);
 

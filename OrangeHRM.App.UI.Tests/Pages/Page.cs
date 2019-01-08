@@ -13,9 +13,10 @@ namespace OrangeHRM.App.UI.Tests.Pages
     class Page
     {
         protected RemoteWebDriver Driver { get; }
+        //public Page(RemoteWebDriver driver)
         public Page()
         {
-            this.Driver = UITestsBase.Driver;
+            Driver = UITestsBase.InitDriver();
         }
 
         protected string PageUrl { get; set; }
