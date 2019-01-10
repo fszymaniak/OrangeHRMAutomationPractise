@@ -8,15 +8,23 @@ using OpenQA.Selenium.Remote;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
-    
+    using Settings;
 
-    class Page
+
+    class Page : TestHooks
     {
         protected RemoteWebDriver Driver { get; }
-        //public Page(RemoteWebDriver driver)
         public Page()
         {
-            Driver = UITestsBase.InitDriver();
+            if (Driver == null)
+            {
+                Driver = UITestsBase.InitDriver();
+                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            }
+            else
+            {
+                Driver = UITestsBase.Driver;
+            }
         }
 
         protected string PageUrl { get; set; }

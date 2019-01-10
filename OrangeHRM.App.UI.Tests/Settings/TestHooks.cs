@@ -11,13 +11,13 @@ namespace OrangeHRM.App.UI.Tests.Settings
         [BeforeScenario]
         public void BeforeScenario()
         {
-            this.driver = UITestsBase.InitDriver(); 
+            driver = UITestsBase.Driver;
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            driver.Close();
+            driver.Quit();
             driver.Dispose();
             driver.Dispose();
         }

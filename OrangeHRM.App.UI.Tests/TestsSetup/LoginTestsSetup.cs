@@ -4,8 +4,6 @@ using OrangeHRM.App.UI.Tests.Settings;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
-    
-
     public class LoginTestsSetup : TestHooks
     {
         protected static RemoteWebDriver WebDriver { get; private set; }
