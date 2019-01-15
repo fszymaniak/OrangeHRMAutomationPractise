@@ -6,16 +6,22 @@ namespace OrangeHRM.App.UI.Tests.Pages
 {
     class LoginPage : Page
     {
+        private readonly string _userNameInputXP = "//input[@id='txtUsername']";
+
+        private readonly string _userPasswordInputXP = "//input[@id='txtPassword']";
+
+        private readonly string _loginButtonXP = "//input[@id='btnLogin']";
+
         public LoginPage()
         {
             PageUrl = UITestsConfiguration.OrgangeHrmURL + "auth/login";
         }
 
-        private IWebElement UserNameInput => Driver.FindElement("//input[@id='txtUsername']");
+        private IWebElement UserNameInput => Driver.FindElement(_userNameInputXP);
 
-        private IWebElement UserPasswordInput => Driver.FindElement("//input[@id='txtPassword']");
+        private IWebElement UserPasswordInput => Driver.FindElement(_userPasswordInputXP);
 
-        private IWebElement LoginButton => Driver.FindElement("//input[@id='btnLogin']");
+        private IWebElement LoginButton => Driver.FindElement(_loginButtonXP);
         
         public void LogIn()
         {
