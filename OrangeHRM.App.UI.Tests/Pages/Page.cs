@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OrangeHRM.App.UI.Tests.Settings;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
-    using Settings;
-
-
     class Page : TestHooks
     {
         protected RemoteWebDriver Driver { get; }
