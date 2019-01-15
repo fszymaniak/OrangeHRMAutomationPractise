@@ -23,5 +23,7 @@ namespace OrangeHRM.App.UI.Tests.Extensions
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(waitTime));
             wait.Until(d => driver.FindElement(By.XPath($"{xpath}")).Displayed);
         }
+
+
     }
 }

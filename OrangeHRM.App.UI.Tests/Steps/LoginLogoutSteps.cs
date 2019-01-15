@@ -16,9 +16,21 @@ namespace OrangeHRM.App.UI.Tests.Steps
         }
 
         [Given(@"I have entered login credentials")]
-        public void GivenIHaveEnteredLoginNameInALoginNameInput()
+        public void GivenIHaveEnteredLoginCredentials()
         {
-            loginPage.LogIn();
+            loginPage.EnterCredentials();
+        }
+
+        [Given(@"I have entered login credentials with invalid user name")]
+        public void GivenIHaveEnteredInvalidUserName()
+        {
+            loginPage.EnterCredentialsWithInvalidUserName();
+        }
+
+        [Given(@"I have entered login credentials with invalid password")]
+        public void GivenIHaveEnteredInvalidPassword()
+        {
+            loginPage.EnterCredentialsWithInvalidPassword();
         }
 
         [When(@"I press login button")]
@@ -31,6 +43,12 @@ namespace OrangeHRM.App.UI.Tests.Steps
         public void ThenICanLogToTheApplication()
         {
             loginPage.ValidateLoginSuccess();
+        }
+
+        [Then(@"I cannot log to the application")]
+        public void ThenICannotLogToTheApplication()
+        {
+            loginPage.ValidateUnsuccessfulLogin();
         }
     }
 }
