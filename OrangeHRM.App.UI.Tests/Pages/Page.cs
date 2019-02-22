@@ -36,11 +36,6 @@ namespace OrangeHRM.App.UI.Tests.Pages
             return Driver.FindElements(By.XPath(xpath)).Any();
         }
 
-        public bool ElementDoesNotExist(string xpath)
-        {
-            return !DoesElementExist(xpath);
-        }
-
         public void RefreshPage()
         {
             Driver.Navigate().Refresh();

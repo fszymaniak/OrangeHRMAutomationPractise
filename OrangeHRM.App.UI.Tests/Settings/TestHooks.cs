@@ -19,7 +19,6 @@ namespace OrangeHRM.App.UI.Tests.Settings
         {
             driver.Quit();
             driver.Dispose();
-            driver.Dispose();
         }
     }
 }

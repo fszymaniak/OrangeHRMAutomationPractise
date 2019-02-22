@@ -4,6 +4,8 @@ using NUnit.Framework;
 
 namespace OrangeHRM.App.UI.Tests.Pages
 {
+    using Constants;
+
     class LoginPage : Page
     {
         private readonly string _userNameInputXP = "//input[@id='txtUsername']";
@@ -12,11 +14,11 @@ namespace OrangeHRM.App.UI.Tests.Pages
 
         private readonly string _loginButtonXP = "//input[@id='btnLogin']";
 
-        private readonly string _invalidCredentialsMessageXP = "//span[@id='spanMessage'][text()='Invalid credentials']"; 
+        private readonly string _invalidCredentialsMessageXP = "//span[@id='spanMessage'][contains(text(), 'Invalid credentials')]"; 
 
         public LoginPage()
         {
-            PageUrl = UITestsConfiguration.OrgangeHrmURL + "auth/login";
+            PageUrl = UITestsConfiguration.OrgangeHrmURL + Endpoints.Login;
         }
 
         private IWebElement UserNameInput => Driver.FindElement(_userNameInputXP);
@@ -27,31 +29,31 @@ namespace OrangeHRM.App.UI.Tests.Pages
 
         private IWebElement InvalidCredentialsMesssge => Driver.FindElement(_invalidCredentialsMessageXP);
         
-        public void EnterCredentials()
+        public void EnterValidCredentials()
         {
-            InputName("Admin");
-            InputPassword("admin123");
+            FillUserNameInput(ValidLoginCredentials.UserAdminName);
+            FillUserPasswordInput(ValidLoginCredentials.UserAdminPassword);
         }
 
-        public void EnterCredentialsWithInvalidUserName()
+        public void EnterInvalidCredentials(string name, string password)
         {
-            InputName("Admin111");
-            InputPassword("admin123");
+            FillUserNameInput(name);
+            FillUserPasswordInput(password);
         }
 
-        public void EnterCredentialsWithInvalidPassword()
+        public void EnterInValidCredentials(string name, string password)
         {
-            InputName("Admin");
-            InputPassword("admin1234567");
+            FillUserNameInput(name);
+            FillUserPasswordInput(password);
         }
 
-        public void InputName(string name)
+        public void FillUserNameInput(string name)
         {
             UserNameInput.Clear();
             UserNameInput.SendKeys(name);
         }
 
-        public void InputPassword(string password)
+        public void FillUserPasswordInput(string password)
         {
             UserPasswordInput.Clear();
             UserPasswordInput.SendKeys(password);
@@ -65,13 +67,13 @@ namespace OrangeHRM.App.UI.Tests.Pages
         public void ValidateLoginSuccess()
         {
             var url = Driver.Url;
-            Assert.AreEqual(UITestsConfiguration.OrgangeHrmURL + "dashboard", url);
+            Assert.AreEqual(UITestsConfiguration.OrgangeHrmURL + Endpoints.Dashboard, url);
         }
 
         public void ValidateUnsuccessfulLogin()
         {
             var url = Driver.Url;
-            Assert.AreEqual(UITestsConfiguration.OrgangeHrmURL + "auth/validateCredentials", url);
+            Assert.AreEqual(UITestsConfiguration.OrgangeHrmURL + Endpoints.ValidateCredentials, url);
             Assert.True(InvalidCredentialsMesssge.Displayed);
         }
     }

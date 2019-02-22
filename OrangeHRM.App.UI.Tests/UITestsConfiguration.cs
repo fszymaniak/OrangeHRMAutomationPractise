@@ -13,6 +13,9 @@ namespace OrangeHRM.App.UI.Tests
         public static string DriverDefaultLanguage => Configuration["DriverDefaultLanguage"];
 
         public static string DriverDefaultWindowSize => Configuration["DriverDefaultWindowSize"];
+
+        public static int WaitingTimeInSeconds => int.Parse(Configuration["WaitingTimeInSeconds"]);
+
         public static IConfiguration Configuration { get; set; }
 
         static UITestsConfiguration()
