@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Remove="Features\LoginLogout.feature" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
@@ -21,20 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Features\LoginLogout.feature.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>LoginLogout.feature</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Features\LoginLogout.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LoginLogout.feature.cs</LastGenOutput>
     </None>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
