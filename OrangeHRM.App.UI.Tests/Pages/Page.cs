@@ -16,7 +16,7 @@ namespace OrangeHRM.App.UI.Tests.Pages
             if (Driver == null)
             {
                 Driver = UITestsBase.InitDriver();
-                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(UITestsConfiguration.WaitingTimeInSeconds);
             }
             else
             {
@@ -42,4 +42,3 @@ namespace OrangeHRM.App.UI.Tests.Pages
         }
     }
 }
-
