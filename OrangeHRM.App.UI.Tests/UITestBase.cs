@@ -17,7 +17,7 @@ namespace OrangeHRM.App.UI.Tests
             {
                 if (_driver == null)
                 {
-                    throw new NullReferenceException("The WebDriver browser instance was not initialized. You should first call the method Start.");
+                    throw new NullReferenceException(Constants.Configuration.ExceptionMessages.WebdriverNotInitialized);
                 }
                 return _driver;
             }
@@ -33,7 +33,7 @@ namespace OrangeHRM.App.UI.Tests
             {
                 if (_driverWait == null || _driver == null)
                 {
-                    throw new NullReferenceException("The WebDriver browser wait instance was not initialized. You should first call the method Start.");
+                    throw new NullReferenceException(Constants.Configuration.ExceptionMessages.WebdriverWaitNotInitialized);
                 }
                 return _driverWait;
             }
@@ -51,10 +51,9 @@ namespace OrangeHRM.App.UI.Tests
 
                 if (UITestsConfiguration.ChromeHeadlessOn)
                 {
-                    chromeOptions.AddArgument("--headless");
-                    chromeOptions.AddArgument("--disable-gpu");
-                    chromeOptions.AddArgument("--allow-insecure-localhost");
-
+                    chromeOptions.AddArgument(Constants.Configuration.ChromeArguments.Headless);
+                    chromeOptions.AddArgument(Constants.Configuration.ChromeArguments.DisableGpu);
+                    chromeOptions.AddArgument(Constants.Configuration.ChromeArguments.AllowInsecureLocalhost);
                 }
                 else
                 {
